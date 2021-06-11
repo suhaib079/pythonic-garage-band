@@ -108,7 +108,7 @@ if __name__ == "__main__":
     print(ahmad.name)
     print(ahmad.play_solo())
     
-    band1 = (Band("the family band", [suhaib,emad, ahmad]))
+    band1 = (Band("The Nobodies", [suhaib,emad, ahmad]))
     
     print(band1.member)
     print('The play solos method',band1.play_solos())

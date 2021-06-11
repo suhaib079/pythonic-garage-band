@@ -10,9 +10,14 @@ def test_version():
 def prep_data():
     suhaib =Guitarist("suhaib")
     ahmad = Drummer("ahmad")
+    emad= Bassist("emad")
     
     
-    return {'suhaib':suhaib,'ahmad':ahmad}
+    return {'suhaib':suhaib,'ahmad':ahmad ,'emad':emad}
+
+
+    #suhaib
+
 def test_repr(prep_data):
     expected = 'guiter: suhaib'
     actual = prep_data['suhaib'].__repr__()
@@ -29,9 +34,62 @@ def test_get_instrument(prep_data):
     assert expected==acutal
 
 def test_play_solo(prep_data):
+    actual = prep_data['suhaib'].play_solo()
+    expected = 'breeezzzzzzz'
+    assert expected ==actual
+
+
+
+#ahmad
+
+def test_repr(prep_data):
+    expected = 'Drummer: ahmad'
+    actual = prep_data['ahmad'].__repr__()
+    assert actual == expected
+
+def test_str(prep_data):
+    expected='i am ahmad the drum guy'
+    actual = prep_data['ahmad'].__str__()
+    assert expected == actual
+
+def test_get_instrument(prep_data):
+    acutal = prep_data['ahmad'].get_instrument()
+    expected = 'Drums'
+    assert expected==acutal
+
+def test_play_solo(prep_data):
     actual = prep_data['ahmad'].play_solo()
     expected = 'dom dom dom'
     assert expected ==actual
+
+
+#emad
+
+def test_play_solo(prep_data):
+    actual = prep_data['emad'].play_solo()
+    expected = 'breeezzzzzzz'
+    assert expected ==actual
+def test_repr(prep_data):
+    expected = 'guiter: suhaib'
+    actual = prep_data['suhaib'].__repr__()
+    assert actual == expected
+
+def test_str(prep_data):
+    expected=' i am emad the bass guy'
+    actual = prep_data['emad'].__str__()
+    assert expected == actual
+
+def test_get_instrument(prep_data):
+    acutal = prep_data['emad'].get_instrument()
+    expected = 'Bass'
+    assert expected==acutal
+
+def test_to_list():
+    assert Band.to_list() == []
+    the_nobodies = Band("The Nobodies", [])
+    all_bands = Band.to_list()
+    assert len(all_bands) == 1
+    assert all_bands[0] == the_nobodies
 
 
 
